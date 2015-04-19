@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+export DEB_LDFLAGS_MAINT_APPEND=-Wl,--as-needed -Wl,-O1
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+
+%:
+	dh $@ --parallel
+
+override_dh_auto_configure:
+	dh_auto_configure -- --enable-libsensors=yes --enable-procacpi --enable-hddtemp=yes --enable-notification --disable-static
+
+override_dh_makeshlibs:
+	dh_makeshlibs  -X debian/xfce4-sensors-plugin/usr/lib/$(DEB_HOST_MULTIARCH)/xfce4/modules/libxfce4sensors.so.*.*.*
+
+override_dh_auto_install:
+	dh_auto_install
+	find debian/`dh_listpackages` -name '*.la' -delete

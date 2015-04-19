@@ -1,0 +1,22 @@
+Source: xfce4-sensors-plugin
+Section: xfce
+Priority: optional
+Maintainer: Filip Danilovic <filip@openmailbox.org>
+Build-Depends: debhelper (>= 9), libgtk2.0-dev, xfce4-panel-dev, libxml2-dev,
+ libsensors4-dev, libxml-parser-perl, 
+ hddtemp [!kfreebsd-amd64 !kfreebsd-i386 !hurd-i386], intltool, 
+ libxfce4ui-1-dev, libnotify-dev
+Standards-Version: 3.9.6
+Homepage: http://goodies.xfce.org/
+Vcs-Svn: svn://svn.debian.org/pkg-xfce/goodies/trunk/xfce4-sensors-plugin/
+Vcs-Browser: http://svn.debian.org/wsvn/pkg-xfce/goodies/trunk/xfce4-sensors-plugin/
+
+Package: xfce4-sensors-plugin
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: hddtemp, lm-sensors
+Suggests: xsensors
+Description: hardware sensors plugin for the Xfce4 panel
+ The sensors plugin provides a handy way to monitor your hard disk, 
+ processor, fans, and other critical hardware right on your 
+ Xfce panel.

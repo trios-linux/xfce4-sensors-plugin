@@ -1,0 +1,3 @@
+version=3
+http://archive.xfce.org/src/panel-plugins/xfce4-sensors-plugin/([\d\.]+)/ \
+	xfce4-sensors-plugin-([\d\.]+)\.tar\.(?:gz|bz2)
